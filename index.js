@@ -1,6 +1,5 @@
 const http = require('node:http');
 const fs = require('node:fs');
-const url = require('node:url');
 
 const hostname = 'localhost';
 const port = 8080;
