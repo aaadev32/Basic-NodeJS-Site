@@ -9,9 +9,7 @@ const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
 
-    //TODO check URL path and serve associated file if it exists, else serve 404.html, maybe use if else statements using method that checks URL to serve the proper page
     if (req.url == '/' || req.url == '/index.html') {
-
         fs.readFile('./routes/index.html', (err, data) => {
             if (err) {
                 throw err
@@ -20,7 +18,6 @@ const server = http.createServer((req, res) => {
             res.end();
         });
     } else if (req.url == '/about.html') {
-        //retrieve associated file and serve it
         fs.readFile('./routes/about.html', (err, data) => {
             if (err) {
                 throw err
@@ -29,7 +26,6 @@ const server = http.createServer((req, res) => {
             res.end();
         });
     } else if (req.url == '/contact.html') {
-        //retrieve associated file and serve it
         fs.readFile('./routes/contact-me.html', (err, data) => {
             if (err) {
                 throw err
@@ -38,7 +34,6 @@ const server = http.createServer((req, res) => {
             res.end();
         });
     } else {
-        //retrieve associated file and serve it
         fs.readFile('./routes/404.html', (err, data) => {
             if (err) {
                 throw err
@@ -47,7 +42,6 @@ const server = http.createServer((req, res) => {
             res.end();
         });
     }
-
 });
 
 server.listen(port, hostname, () => {
